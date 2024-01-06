@@ -1,0 +1,298 @@
+body {
+  margin: 0;
+  background-color: #1f2128;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-background {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.logo {
+  position: relative;
+  margin-top: 30px;
+}
+
+.add-city {
+  position: relative;
+}
+
+.add-city-input {
+  background-color: #1f2128;
+  height: 35px;
+  width: 300px;
+  border: 0px solid;
+  border-radius: 5px;
+  padding: 3px;
+  padding-left: 8px;
+  color: #ffffff;
+}
+
+.add-city-btn {
+  background-color: #6c5dd3;
+  width: 100px;
+  height: 45px;
+  border: 0px solid;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+/* Weather List Styles 
+    *This is used in dashboards weather list
+*/
+
+.weather-item-list {
+  position: relative;
+  margin-top: 50px;
+}
+
+.weather-item {
+  position: relative;
+  background-color: #383b47;
+}
+
+.weather-item-image {
+  width: 100%;
+}
+
+.weather-item-city {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  font-size: 25px;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.weather-item-date {
+  position: absolute;
+  top: 30%;
+  left: 16%;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.weather-item-temp {
+  position: absolute;
+  top: 10%;
+  left: 65%;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.weather-item-min-max {
+  position: absolute;
+  top: 40%;
+  left: 65%;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+p {
+  margin: 2px;
+  padding: 1px;
+}
+
+.weather-item-sky {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.weather-item-sky-image {
+  width: 40px;
+  height: 40px;
+}
+
+.weather-item-sky-description {
+  display: inline;
+  position: absolute;
+  top: 30%;
+  white-space: nowrap;
+}
+
+.weather-item-bottom-panel {
+  padding: 0;
+}
+
+.weather-item-bottom-panel-vertical-line {
+  border-right: 2px solid;
+  padding-left: 18%;
+  border-image: linear-gradient(#383b47, #535353, #383b47) 4;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.weather-item-bottom-panel-vertical-line-last {
+  padding-left: 20px;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.weather-item-bottom-panel-wind-img {
+  position: relative;
+  margin-left: 31%;
+  margin-bottom: 4%;
+  height: 16px;
+  width: 16px;
+}
+
+.footer {
+  background-color: #383b47;
+  margin-top: 50px;
+  padding: 20px;
+  color: #888888;
+  font-size: 12px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+/* View Weather Styles */
+
+.view-weather-container {
+  position: relative;
+  margin-top: 5%;
+  min-height: 70vh;
+}
+
+.view-weather {
+  /* height: 45vh; */
+  background-color: #383b47;
+}
+
+.view-weather-top {
+  /* height: 30vh; */
+  padding-bottom: 5vh;
+}
+
+.view-weather-location {
+  margin-top: 5vh;
+  font-size: 26px;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.view-weather-time {
+  margin-top: 1vh;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.view-weather-sky {
+  color: #ffffff;
+}
+
+.view-weather-sky-image {
+  height: 7vh;
+  width: 7vh;
+}
+
+.view-weather-sky-description {
+  font-size: 12px;
+}
+
+.view-weather-temp {
+  color: #ffffff;
+}
+
+.view-weather-temp-display {
+  font-size: 40px;
+  margin-bottom: 1vh;
+}
+
+.view-weather-temp-minmax {
+  font-size: 11px;
+  margin-top: 1vh;
+}
+
+.view-weather-sky-temp-container {
+  margin-top: 4vh;
+}
+
+.view-weather-gap {
+  display: flex;
+  justify-content: center;
+  width: 4vh;
+}
+
+.view-weather-gap-line {
+  width: 0;
+  height: 7vh;
+  border-left-style: solid;
+  border-color: #ffffff;
+}
+
+.view-weather-bottom {
+  padding: 3vh;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.view-weather-bottom-image {
+  height: 2vh;
+  width: 2vh;
+}
+
+.view-weather-bottom-phv div {
+  margin-top: 8px;
+}
+
+.view-weather-bottom-wind div {
+  margin-top: 8px;
+}
+
+.view-weather-bottom-sunrise div {
+  margin-top: 8px;
+}
+
+.view-weather-bottom-divider {
+  display: flex;
+  justify-content: center;
+  width: 8vh;
+}
+
+.view-weather-bottom-divider-line {
+  width: 0;
+  height: 5vh;
+  border-left: 2px solid;
+  border-color: #686767;
+}
+
+.view-weather-few-clouds {
+  background-color: #388ee7;
+}
+
+.view-weather-clear-sky {
+  background-color: #40b681;
+}
+
+.view-weather-broken-clouds {
+  background-color: #6249cc;
+}
+
+.view-weather-light-rain {
+  background-color: #de944e;
+}
+
+.view-weather-mist {
+  background-color: #9c3a3a;
+}
+
+@media only screen and (max-width: 900px) {
+  .view-weather-bottom-divider {
+    width: 1vh;
+  }
+}
