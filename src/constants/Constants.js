@@ -4,7 +4,7 @@ import orange from "../assets/backgrounds/orange.png";
 import green from "../assets/backgrounds/green.png";
 import purple from "../assets/backgrounds/purple.png";
 import cloudy from "../assets/icons/Cloudy.png";
-import mist from "../assets/icons/Mist.png";
+import misty from "../assets/icons/Mist.png";
 import rainy from "../assets/icons/Rainy.png";
 import sunny from "../assets/icons/Sunny.png";
 import broken from "../assets/icons/BrokenClouds.png";
@@ -23,7 +23,7 @@ export const BACKGROUND_ARRAY = [blue, purple, green, orange, red];
 
 export const ICONS = {
   cloudy,
-  mist,
+  misty,
   rainy,
   sunny,
   broken,
