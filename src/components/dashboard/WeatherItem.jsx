@@ -1,10 +1,9 @@
 import React from "react";
-import { Grid } from "@mui/material";
-import weatherBackground from "../../assets/backgrounds/WeatherBackground.png";
-import skyIcon from "../../assets/icons/Cloudy.png";
+import { Grid, Container } from "@mui/material";
 import windIcon from "../../assets/icons/Send.png";
+import { background, icon } from "../../util/util";
 
-export default function WeatherItem({ data }) {
+export default function WeatherItem({ data, index }) {
   const temp = Math.floor(data.current.temp);
   const city = data.city;
   const countryCode = data.country;
@@ -23,21 +22,24 @@ export default function WeatherItem({ data }) {
   const windDeg = data.current.wind_deg;
   const visibility = Math.floor(data.current.visibility / 1000);
   const humidity = data.current.humidity;
+  const iconID = data.current.weather[0].id;
 
   return (
     <div className="weather-item">
-      <img src={weatherBackground} className="weather-item-image" />
-      <div className="weather-item-city">
-        {city},{countryCode}
+      <img src={background(index)} className="weather-item-image" />
+      <div className="weather-item-city-time-container">
+        <div className="weather-item-city">
+          {city},{countryCode}
+        </div>
+        <div className="weather-item-date">{time}</div>
       </div>
-      <div className="weather-item-date">{time}</div>
       <div className="weather-item-temp">{`${temp}\xB0c`}</div>
       <div className="weather-item-min-max">
         <p>{`Temp Min: 25\xB0c`}</p>
         <p>{`Temp Max: 28\xB0c`}</p>
       </div>
       <div className="weather-item-sky">
-        <img src={skyIcon} alt="" className="weather-item-sky-image" />
+        <img src={icon(iconID)} alt="" className="weather-item-sky-image" />
         <p className="weather-item-sky-description">{skydescription}</p>
       </div>
       <div className="weather-item-bottom-panel">

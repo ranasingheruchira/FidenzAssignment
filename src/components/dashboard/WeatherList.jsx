@@ -9,9 +9,9 @@ export default function WeatherList({ data }) {
       <Container maxWidth="md" fixed>
         <Grid container spacing={2}>
           {data.map((weather, index) => (
-            <Grid item xs={12} md={6} key={weather.timezone}>
+            <Grid item xs={12} md={6} key={index}>
               <Link to={`/view/${index}`}>
-                <WeatherItem data={weather}></WeatherItem>
+                <WeatherItem data={weather} index={index}></WeatherItem>
               </Link>
             </Grid>
           ))}

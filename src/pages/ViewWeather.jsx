@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Grid } from "@mui/material";
-import skyIcon from "../assets/icons/Cloudy.png";
 import windIcon from "../assets/icons/Send.png";
 import { useParams } from "react-router-dom";
+import { icon } from "../util/util";
 
 export default function ViewWeather({ data }) {
   const { id } = useParams();
@@ -24,7 +24,7 @@ export default function ViewWeather({ data }) {
   const visibility = Math.floor(weatherData.current.visibility / 1000);
   const windSpeed = weatherData.current.wind_speed;
   const windDeg = weatherData.current.wind_deg;
-
+  const iconID = weatherData.current.weather[0].id;
   return (
     <Container maxWidth={"md"} fixed>
       <div className="view-weather-container">
@@ -45,7 +45,10 @@ export default function ViewWeather({ data }) {
               <Grid container justifyContent="center" alignItems="center">
                 <div className="view-weather-sky">
                   <Container>
-                    <img src={skyIcon} className="view-weather-sky-image" />
+                    <img
+                      src={icon(iconID)}
+                      className="view-weather-sky-image"
+                    />
                     <div className="view-weather-sky-description">
                       {skyDescription}
                     </div>

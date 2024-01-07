@@ -1,4 +1,33 @@
+import red from "../assets/backgrounds/red.png";
+import blue from "../assets/backgrounds/blue.png";
+import orange from "../assets/backgrounds/orange.png";
+import green from "../assets/backgrounds/green.png";
+import purple from "../assets/backgrounds/purple.png";
+import cloudy from "../assets/icons/Cloudy.png";
+import mist from "../assets/icons/Mist.png";
+import rainy from "../assets/icons/Rainy.png";
+import sunny from "../assets/icons/Sunny.png";
+import broken from "../assets/icons/BrokenClouds.png";
+
 export const WEATHER_API_KEY = "997de65c0fa571fc3f486bfdc838480b";
+
+export const BACKGROUNDS = {
+  red,
+  green,
+  orange,
+  purple,
+  blue,
+};
+
+export const BACKGROUND_ARRAY = [blue, purple, green, orange, red];
+
+export const ICONS = {
+  cloudy,
+  mist,
+  rainy,
+  sunny,
+  broken,
+};
 
 export const WEATHER_ARRAY = [
   {
