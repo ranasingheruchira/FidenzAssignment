@@ -4,20 +4,41 @@ import weatherBackground from "../../assets/backgrounds/WeatherBackground.png";
 import skyIcon from "../../assets/icons/Cloudy.png";
 import windIcon from "../../assets/icons/Send.png";
 
-export default function WeatherItem() {
+export default function WeatherItem({ data }) {
+  const temp = Math.floor(data.current.temp);
+  const city = data.city;
+  const countryCode = data.country;
+
+  const time = data.fetchTime.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    month: "short",
+    day: "2-digit",
+  });
+
+  const skydescription = data.current.weather[0].description;
+  const preassure = data.current.pressure;
+  const windSpeed = data.current.wind_speed;
+  const windDeg = data.current.wind_deg;
+  const visibility = Math.floor(data.current.visibility / 1000);
+  const humidity = data.current.humidity;
+
   return (
     <div className="weather-item">
       <img src={weatherBackground} className="weather-item-image" />
-      <div className="weather-item-city">Colombo,LK</div>
-      <div className="weather-item-date">9.19am, Feb 8</div>
-      <div className="weather-item-temp">{`27\xB0c`}</div>
+      <div className="weather-item-city">
+        {city},{countryCode}
+      </div>
+      <div className="weather-item-date">{time}</div>
+      <div className="weather-item-temp">{`${temp}\xB0c`}</div>
       <div className="weather-item-min-max">
         <p>{`Temp Min: 25\xB0c`}</p>
         <p>{`Temp Max: 28\xB0c`}</p>
       </div>
       <div className="weather-item-sky">
         <img src={skyIcon} alt="" className="weather-item-sky-image" />
-        <p className="weather-item-sky-description">Fewer Clouds</p>
+        <p className="weather-item-sky-description">{skydescription}</p>
       </div>
       <div className="weather-item-bottom-panel">
         <Grid
@@ -30,15 +51,15 @@ export default function WeatherItem() {
             <div className="weather-item-bottom-panel-vertical-line">
               <p>
                 <b>Preassure: </b>
-                1018hPa
+                {preassure}hPa
               </p>
               <p>
                 <b>Humidity: </b>
-                78%
+                {humidity}%
               </p>
               <p>
                 <b>Visibility: </b>
-                8.0km
+                {visibility}km
               </p>
             </div>
           </Grid>
@@ -48,7 +69,9 @@ export default function WeatherItem() {
                 src={windIcon}
                 className="weather-item-bottom-panel-wind-img"
               />
-              <p>4.0m/s 120 Degrees</p>
+              <p>
+                {windSpeed}m/s {windDeg} Degrees
+              </p>
             </div>
           </Grid>
           <Grid item xs={4}>

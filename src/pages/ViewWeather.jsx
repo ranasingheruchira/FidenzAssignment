@@ -2,7 +2,29 @@ import React from "react";
 import { Container, Grid } from "@mui/material";
 import skyIcon from "../assets/icons/Cloudy.png";
 import windIcon from "../assets/icons/Send.png";
-export default function ViewWeather() {
+import { useParams } from "react-router-dom";
+
+export default function ViewWeather({ data }) {
+  const { id } = useParams();
+
+  const weatherData = data[id];
+
+  const time = weatherData.fetchTime.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    month: "short",
+    day: "2-digit",
+  });
+
+  const temp = Math.floor(weatherData.current.temp);
+  const skyDescription = weatherData.current.weather[0].description;
+  const preassure = weatherData.current.pressure;
+  const humidity = weatherData.current.humidity;
+  const visibility = Math.floor(weatherData.current.visibility / 1000);
+  const windSpeed = weatherData.current.wind_speed;
+  const windDeg = weatherData.current.wind_deg;
+
   return (
     <Container maxWidth={"md"} fixed>
       <div className="view-weather-container">
@@ -14,8 +36,10 @@ export default function ViewWeather() {
               alignItems="center"
               direction="column"
             >
-              <div className="view-weather-location">Colombo,LK</div>
-              <div className="view-weather-time">9:19am, Feb 8</div>
+              <div className="view-weather-location">
+                {weatherData.city},{weatherData.country}
+              </div>
+              <div className="view-weather-time">{time}</div>
             </Grid>
             <div className="view-weather-sky-temp-container">
               <Grid container justifyContent="center" alignItems="center">
@@ -23,7 +47,7 @@ export default function ViewWeather() {
                   <Container>
                     <img src={skyIcon} className="view-weather-sky-image" />
                     <div className="view-weather-sky-description">
-                      Few Clouds
+                      {skyDescription}
                     </div>
                   </Container>
                 </div>
@@ -32,7 +56,7 @@ export default function ViewWeather() {
                 </div>
                 <div className="view-weather-temp">
                   <Container>
-                    <div className="view-weather-temp-display">{`27\xb0c`}</div>
+                    <div className="view-weather-temp-display">{`${temp}\xb0c`}</div>
                     <div className="view-weather-temp-minmax">{`Temp Min: 25\xb0c`}</div>
                     <div className="view-weather-temp-minmax">{`Temp Min: 25\xb0c`}</div>
                   </Container>
@@ -50,13 +74,13 @@ export default function ViewWeather() {
             >
               <div className="view-weather-bottom-phv">
                 <div>
-                  <b>Preassure:</b> 1018hPa
+                  <b>Preassure:</b> {preassure}hPa
                 </div>
                 <div>
-                  <b>Humidity:</b> 78%
+                  <b>Humidity:</b> {humidity}%
                 </div>
                 <div>
-                  <b>Visibility:</b> 8.0km
+                  <b>Visibility:</b> {visibility}km
                 </div>
               </div>
               <div className="view-weather-bottom-divider">
@@ -70,7 +94,9 @@ export default function ViewWeather() {
                   direction="column"
                 >
                   <img src={windIcon} className="view-weather-bottom-image" />
-                  <div>4.0m/s 120 Degree</div>
+                  <div>
+                    {windSpeed}m/s {windDeg} Degree
+                  </div>
                 </Grid>
               </div>
               <div className="view-weather-bottom-divider">
