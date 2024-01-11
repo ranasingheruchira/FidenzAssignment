@@ -9,8 +9,6 @@ export default function ViewWeather({ data }) {
 
   const weatherData = data[id];
 
-  console.log("view weather data", data);
-
   const time = weatherData.fetchTime.toLocaleString("en-US", {
     hour: "numeric",
     minute: "numeric",

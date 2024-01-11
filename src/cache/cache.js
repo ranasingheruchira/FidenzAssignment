@@ -5,7 +5,6 @@ export function setCacheData(data, timestamp) {
 
 export function getCachedData() {
   const dataString = localStorage.getItem("weatherData");
-  // console.log("data", Array.from(JSON.parse(dataString)));
   return Array.from(JSON.parse(dataString));
 }
 
@@ -18,14 +17,10 @@ export function isCacheExpired() {
   const fetchedTime = localStorage.getItem("timestamp");
   const currentTime = new Date().getTime();
 
-  // console.log("current time", currentTime);
-  // console.log("fetched time", fetchedTime);
-
   if (!fetchedTime && currentTime) {
     return true;
   } else {
     let timeDifference = (currentTime - Number(fetchedTime)) / (1000 * 60);
-    console.log("time difference", timeDifference);
     if (timeDifference > 5) {
       return true;
     } else return false;

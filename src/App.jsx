@@ -14,19 +14,13 @@ function App() {
   const cacheExpired = isCacheExpired();
 
   useEffect(() => {
-    console.log("effect executed");
     if (isCacheExpired()) {
-      console.log("effect if executed");
       removeCachedData();
       getWeatherData(updateWeatherData);
-      console.log("effect if end executed");
     } else {
-      console.log("effect else executed");
       updateWeatherData(getCachedData());
     }
   }, [cacheExpired]);
-
-  console.log("app weather data", weatherData);
 
   return (
     <>
@@ -35,13 +29,11 @@ function App() {
         <Route
           path="/"
           element={
-            // <DashBoard data={weatherData} />
             <DashBoard
               data={isCacheExpired() ? weatherData : getCachedData()}
             />
           }
         />
-        {/* <Route path="/view/:id" element={<ViewWeather data={weatherData} />} /> */}
         <Route
           path="/view/:id"
           element={
