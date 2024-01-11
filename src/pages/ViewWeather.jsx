@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Grid } from "@mui/material";
 import windIcon from "../assets/icons/Send.png";
 import { useParams } from "react-router-dom";
@@ -8,6 +8,8 @@ export default function ViewWeather({ data }) {
   const { id } = useParams();
 
   const weatherData = data[id];
+
+  console.log("view weather data", data);
 
   const time = weatherData.fetchTime.toLocaleString("en-US", {
     hour: "numeric",
