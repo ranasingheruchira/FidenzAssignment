@@ -6,13 +6,23 @@ import { Routes, Route } from "react-router-dom";
 import { WEATHER_ARRAY } from "./constants/Constants";
 import { getWeatherData } from "./api/WeatherService";
 import { useEffect, useState } from "react";
+import { isCacheExpired, getCachedData, removeCachedData } from "./cache/cache";
 
 function App() {
   const [weatherData, updateWeatherData] = useState(WEATHER_ARRAY);
 
+  const cacheExpired = isCacheExpired();
+
   useEffect(() => {
-    getWeatherData(updateWeatherData);
-  }, []);
+    if (isCacheExpired()) {
+      removeCachedData();
+      getWeatherData(updateWeatherData);
+    } else {
+      updateWeatherData(getCachedData());
+    }
+  }, [cacheExpired]);
+
+  getCachedData();
 
   return (
     <>

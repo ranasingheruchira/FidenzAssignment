@@ -9,8 +9,6 @@ import rainy from "../assets/icons/Rainy.png";
 import sunny from "../assets/icons/Sunny.png";
 import broken from "../assets/icons/BrokenClouds.png";
 
-export const WEATHER_API_KEY = "997de65c0fa571fc3f486bfdc838480b";
-
 export const BACKGROUNDS = {
   red,
   green,

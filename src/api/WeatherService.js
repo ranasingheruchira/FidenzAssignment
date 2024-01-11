@@ -1,8 +1,9 @@
 import { cities } from "../data/cities";
-import { WEATHER_API_KEY } from "../constants/Constants";
+import { setCacheData } from "../cache/cache";
 
 const locationsArray = [];
 const weatherArray = [];
+const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 async function getGeoLocations(cityList) {
   for (let city of cityList) {
@@ -30,7 +31,13 @@ async function getWeather(locationList) {
 }
 
 export async function getWeatherData(callback) {
-  await getGeoLocations(cities);
-  await getWeather(locationsArray);
-  callback(weatherArray);
+  try {
+    await getGeoLocations(cities);
+    await getWeather(locationsArray);
+    setCacheData(weatherArray, new Date().getTime());
+    callback(weatherArray);
+  } catch (err) {
+    callback("error");
+    console.log("An Error Occured", err);
+  }
 }

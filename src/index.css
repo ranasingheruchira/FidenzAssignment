@@ -297,6 +297,17 @@ p {
   background-color: #9c3a3a;
 }
 
+.error-container {
+  position: relative;
+}
+
+.error-msg-container {
+  padding-top: 5vh;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
 @media only screen and (max-width: 900px) {
   .view-weather-bottom-divider {
     width: 1vh;
