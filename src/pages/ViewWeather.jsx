@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Container, Grid } from "@mui/material";
 import windIcon from "../assets/icons/Send.png";
 import { useParams } from "react-router-dom";
 import { icon } from "../util/util";
 
 export default function ViewWeather({ data }) {
-  const { id } = useParams();
+  let { id } = useParams();
 
-  const weatherData = data[id];
+  let weatherData = data[id];
 
-  const time = weatherData.fetchTime.toLocaleString("en-US", {
+  let time = weatherData.fetchTime.toLocaleString("en-US", {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
@@ -17,14 +17,15 @@ export default function ViewWeather({ data }) {
     day: "2-digit",
   });
 
-  const temp = Math.floor(weatherData.current.temp);
-  const skyDescription = weatherData.current.weather[0].description;
-  const preassure = weatherData.current.pressure;
-  const humidity = weatherData.current.humidity;
-  const visibility = Math.floor(weatherData.current.visibility / 1000);
-  const windSpeed = weatherData.current.wind_speed;
-  const windDeg = weatherData.current.wind_deg;
-  const iconID = weatherData.current.weather[0].id;
+  let temp = Math.floor(weatherData.current.temp);
+  let skyDescription = weatherData.current.weather[0].description;
+  let preassure = weatherData.current.pressure;
+  let humidity = weatherData.current.humidity;
+  let visibility = Math.floor(weatherData.current.visibility / 1000);
+  let windSpeed = weatherData.current.wind_speed;
+  let windDeg = weatherData.current.wind_deg;
+  let iconID = weatherData.current.weather[0].id;
+
   return (
     <Container maxWidth={"md"} fixed>
       <div className="view-weather-container">

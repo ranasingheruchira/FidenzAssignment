@@ -1,14 +1,14 @@
 import React from "react";
-import { Grid, Container } from "@mui/material";
+import { Grid } from "@mui/material";
 import windIcon from "../../assets/icons/Send.png";
 import { background, icon } from "../../util/util";
 
 export default function WeatherItem({ data, index }) {
-  const temp = Math.floor(data.current.temp);
-  const city = data.city;
-  const countryCode = data.country;
+  let temp = Math.floor(data.current.temp);
+  let city = data.city;
+  let countryCode = data.country;
 
-  const time = data.fetchTime.toLocaleString("en-US", {
+  let time = data.fetchTime.toLocaleString("en-US", {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
@@ -16,13 +16,13 @@ export default function WeatherItem({ data, index }) {
     day: "2-digit",
   });
 
-  const skydescription = data.current.weather[0].description;
-  const preassure = data.current.pressure;
-  const windSpeed = data.current.wind_speed;
-  const windDeg = data.current.wind_deg;
-  const visibility = Math.floor(data.current.visibility / 1000);
-  const humidity = data.current.humidity;
-  const iconID = data.current.weather[0].id;
+  let skydescription = data.current.weather[0].description;
+  let preassure = data.current.pressure;
+  let windSpeed = data.current.wind_speed;
+  let windDeg = data.current.wind_deg;
+  let visibility = Math.floor(data.current.visibility / 1000);
+  let humidity = data.current.humidity;
+  let iconID = data.current.weather[0].id;
 
   return (
     <div className="weather-item">
