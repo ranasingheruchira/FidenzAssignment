@@ -6,11 +6,15 @@ import { icon } from "../util/util";
 import { weatherLables } from "../constants/Constants";
 
 export default function ViewWeather({ data }) {
+  console.log(data);
   let { id } = useParams();
-
   let weatherData = data[id];
 
-  let time = weatherData.fetchTime.toLocaleString("en-US", {
+  const temp = Math.floor(weatherData.main.temp);
+  const city = weatherData.name;
+  const countryCode = weatherData.sys.country;
+
+  const time = weatherData.fetchTime.toLocaleString("en-US", {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
@@ -18,14 +22,15 @@ export default function ViewWeather({ data }) {
     day: "2-digit",
   });
 
-  let temp = Math.floor(weatherData.current.temp);
-  let skyDescription = weatherData.current.weather[0].description;
-  let preassure = weatherData.current.pressure;
-  let humidity = weatherData.current.humidity;
-  let visibility = Math.floor(weatherData.current.visibility / 1000);
-  let windSpeed = weatherData.current.wind_speed;
-  let windDeg = weatherData.current.wind_deg;
-  let iconID = weatherData.current.weather[0].id;
+  const skydescription = weatherData.weather[0].description;
+  const preassure = weatherData.main.pressure;
+  const windSpeed = weatherData.wind.speed;
+  const windDeg = weatherData.wind.deg;
+  const visibility = Math.floor(weatherData.visibility / 1000);
+  const humidity = weatherData.main.humidity;
+  const iconID = weatherData.weather[0].id;
+  const temp_min = weatherData.main.temp_min;
+  const temp_max = weatherData.main.temp_max;
 
   return (
     <Container maxWidth={"md"} fixed>
@@ -39,7 +44,7 @@ export default function ViewWeather({ data }) {
               direction="column"
             >
               <div className="view-weather-location">
-                {weatherData.city},{weatherData.country}
+                {city},{countryCode}
               </div>
               <div className="view-weather-time">{time}</div>
             </Grid>
@@ -52,7 +57,7 @@ export default function ViewWeather({ data }) {
                       className="view-weather-sky-image"
                     />
                     <div className="view-weather-sky-description">
-                      {skyDescription}
+                      {skydescription}
                     </div>
                   </Container>
                 </div>
@@ -62,8 +67,8 @@ export default function ViewWeather({ data }) {
                 <div className="view-weather-temp">
                   <Container>
                     <div className="view-weather-temp-display">{`${temp}\xb0c`}</div>
-                    <div className="view-weather-temp-minmax">{`Temp Min: 25\xb0c`}</div>
-                    <div className="view-weather-temp-minmax">{`Temp Min: 25\xb0c`}</div>
+                    <div className="view-weather-temp-minmax">{`Temp Min: ${temp_min}\xb0c`}</div>
+                    <div className="view-weather-temp-minmax">{`Temp Min: ${temp_max}\xb0c`}</div>
                   </Container>
                 </div>
               </Grid>
@@ -87,7 +92,8 @@ export default function ViewWeather({ data }) {
                   {humidity + weatherLables.humidityUnit}
                 </div>
                 <div>
-                  <b>Visibility:</b> {visibility + weatherLables.visibilityUnit}
+                  <b>{weatherLables.visibility}</b>{" "}
+                  {visibility + weatherLables.visibilityUnit}
                 </div>
               </div>
               <div className="view-weather-bottom-divider">

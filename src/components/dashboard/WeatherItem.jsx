@@ -5,11 +5,11 @@ import { background, icon } from "../../util/util";
 import { weatherLables } from "../../constants/Constants";
 
 export default function WeatherItem({ data, index }) {
-  let temp = Math.floor(data.current.temp);
-  let city = data.city;
-  let countryCode = data.country;
+  const temp = Math.floor(data.main.temp);
+  const city = data.name;
+  const countryCode = data.sys.country;
 
-  let time = data.fetchTime.toLocaleString("en-US", {
+  const time = data.fetchTime.toLocaleString("en-US", {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
@@ -17,13 +17,15 @@ export default function WeatherItem({ data, index }) {
     day: "2-digit",
   });
 
-  let skydescription = data.current.weather[0].description;
-  let preassure = data.current.pressure;
-  let windSpeed = data.current.wind_speed;
-  let windDeg = data.current.wind_deg;
-  let visibility = Math.floor(data.current.visibility / 1000);
-  let humidity = data.current.humidity;
-  let iconID = data.current.weather[0].id;
+  const skydescription = data.weather[0].description;
+  const preassure = data.main.pressure;
+  const windSpeed = data.wind.speed;
+  const windDeg = data.wind.deg;
+  const visibility = Math.floor(data.visibility / 1000);
+  const humidity = data.main.humidity;
+  const iconID = data.weather[0].id;
+  const temp_min = data.main.temp_min;
+  const temp_max = data.main.temp_max;
 
   return (
     <div className="weather-item">
@@ -36,8 +38,8 @@ export default function WeatherItem({ data, index }) {
       </div>
       <div className="weather-item-temp">{`${temp}\xB0c`}</div>
       <div className="weather-item-min-max">
-        <p>{`Temp Min: 25\xB0c`}</p>
-        <p>{`Temp Max: 28\xB0c`}</p>
+        <p>{`Temp Min: ${temp_min}\xB0c`}</p>
+        <p>{`Temp Max: ${temp_max}\xB0c`}</p>
       </div>
       <div className="weather-item-sky">
         <img src={icon(iconID)} alt="" className="weather-item-sky-image" />

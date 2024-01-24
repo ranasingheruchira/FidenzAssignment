@@ -56,16 +56,11 @@ export const cacheKeys = {
 
 export const cacheExpireTime = 5;
 
-export const watherService = {
-  fetchLocations: "fetching locations",
+export const weatherService = {
   fetchWeather: "fetching weather",
   err: "An error occured",
 };
 
-export const locationsURL = (city, APIKey) => {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIKey}`;
-};
-
-export const weatherURL = (lat, lon, APIKey) => {
-  return `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily,minutely,alerts&units=metric&appid=${APIKey}`;
+export const weatherURL = (city, API_KEY) => {
+  return `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
 };
