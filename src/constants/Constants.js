@@ -47,6 +47,8 @@ export const weatherLables = {
   sunset: "Sunset",
   preassureUnit: "hPa",
   humidityUnit: "%",
+  temp_min: "Temp Min",
+  temp_max: "Temp Max",
 };
 
 export const cacheKeys = {

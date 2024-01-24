@@ -19,9 +19,11 @@ a {
 .logo {
   position: relative;
   margin-top: 30px;
+  min-width: 250px;
 }
 
 .add-city {
+  min-width: 250px;
   position: relative;
 }
 
@@ -57,6 +59,7 @@ a {
 .weather-item {
   position: relative;
   background-color: #383b47;
+  min-width: 250px;
 }
 
 .weather-item-image {
@@ -172,6 +175,7 @@ p {
   position: relative;
   margin-top: 5%;
   min-height: 70vh;
+  min-width: 371px;
 }
 
 .view-weather {
@@ -311,5 +315,99 @@ p {
 @media only screen and (max-width: 900px) {
   .view-weather-bottom-divider {
     width: 1vh;
+  }
+}
+
+@media only screen and (max-width: 407px) {
+  .weather-item-temp {
+    font-size: 30px;
+  }
+  .weather-item-city {
+    font-size: 15px;
+  }
+
+  .weather-item-date {
+    font-size: 8px;
+  }
+
+  .weather-item-sky {
+    top: 35%;
+  }
+  .weather-item-sky-image {
+    display: none;
+  }
+
+  .weather-item-sky-description {
+    font-size: 10px;
+  }
+
+  .weather-item-min-max {
+    font-size: 6px;
+    top: 30%;
+  }
+
+  .weather-item-bottom-panel-vertical-line {
+    font-size: 6px;
+  }
+
+  .weather-item-bottom-panel-vertical-line-last {
+    font-size: 6px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .add-city {
+    margin-left: 8%;
+  }
+
+  .weather-item {
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .logo {
+    margin-left: 25%;
+  }
+  .add-city {
+    margin-left: 15%;
+  }
+  .weather-item-temp {
+    font-size: 25px;
+  }
+  .weather-item-city {
+    font-size: 12px;
+  }
+
+  .weather-item-date {
+    font-size: 6px;
+  }
+
+  .weather-item-sky {
+    top: 30%;
+  }
+  .weather-item-sky-image {
+    display: none;
+  }
+
+  .weather-item-sky-description {
+    font-size: 8px;
+  }
+
+  .weather-item-min-max {
+    font-size: 5px;
+    top: 28%;
+  }
+
+  .weather-item-bottom-panel-vertical-line {
+    font-size: 5px;
+  }
+
+  .weather-item-bottom-panel-vertical-line-last {
+    font-size: 5px;
+  }
+
+  .weather-item-bottom-panel-wind-img {
+    display: none;
   }
 }

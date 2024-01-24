@@ -6,7 +6,6 @@ import { icon } from "../util/util";
 import { weatherLables } from "../constants/Constants";
 
 export default function ViewWeather({ data }) {
-  console.log(data);
   let { id } = useParams();
   let weatherData = data[id];
 
@@ -67,8 +66,8 @@ export default function ViewWeather({ data }) {
                 <div className="view-weather-temp">
                   <Container>
                     <div className="view-weather-temp-display">{`${temp}\xb0c`}</div>
-                    <div className="view-weather-temp-minmax">{`Temp Min: ${temp_min}\xb0c`}</div>
-                    <div className="view-weather-temp-minmax">{`Temp Min: ${temp_max}\xb0c`}</div>
+                    <div className="view-weather-temp-minmax">{`${weatherLables.temp_min} ${temp_min}\xb0c`}</div>
+                    <div className="view-weather-temp-minmax">{`${weatherLables.temp_max} ${temp_max}\xb0c`}</div>
                   </Container>
                 </div>
               </Grid>

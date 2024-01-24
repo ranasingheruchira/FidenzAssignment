@@ -30,7 +30,7 @@ export default function WeatherItem({ data, index }) {
   return (
     <div className="weather-item">
       <img src={background(index)} className="weather-item-image" />
-      <div className="weather-item-city-time-container">
+      {/* <div className="weather-item-city-time-container">
         <div className="weather-item-city">
           {city},{countryCode}
         </div>
@@ -38,12 +38,28 @@ export default function WeatherItem({ data, index }) {
       </div>
       <div className="weather-item-temp">{`${temp}\xB0c`}</div>
       <div className="weather-item-min-max">
-        <p>{`Temp Min: ${temp_min}\xB0c`}</p>
-        <p>{`Temp Max: ${temp_max}\xB0c`}</p>
+        <p>{`${weatherLables.temp_min} ${temp_min}\xB0c`}</p>
+        <p>{`${weatherLables.temp_max} ${temp_max}\xB0c`}</p>
       </div>
       <div className="weather-item-sky">
         <img src={icon(iconID)} alt="" className="weather-item-sky-image" />
         <p className="weather-item-sky-description">{skydescription}</p>
+      </div> */}
+
+      <div className="weather-item-city-time-container">
+        <div className="weather-item-city">
+          {city},{countryCode}
+        </div>
+        <div className="weather-item-date">{time}</div>
+      </div>
+      <div className="weather-item-temp">{`${temp}\xB0c`}</div>
+      <div className="weather-item-sky">
+        <img src={icon(iconID)} alt="" className="weather-item-sky-image" />
+        <p className="weather-item-sky-description">{skydescription}</p>
+      </div>
+      <div className="weather-item-min-max">
+        <p>{`${weatherLables.temp_min} ${temp_min}\xB0c`}</p>
+        <p>{`${weatherLables.temp_max} ${temp_max}\xB0c`}</p>
       </div>
       <div className="weather-item-bottom-panel">
         <Grid
