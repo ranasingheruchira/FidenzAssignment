@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import windIcon from "../../assets/icons/Send.png";
 import { background, icon } from "../../util/util";
+import { weatherLables } from "../../constants/Constants";
 
 export default function WeatherItem({ data, index }) {
   let temp = Math.floor(data.current.temp);
@@ -52,16 +53,19 @@ export default function WeatherItem({ data, index }) {
           <Grid item xs={4}>
             <div className="weather-item-bottom-panel-vertical-line">
               <p>
-                <b>Preassure: </b>
-                {preassure}hPa
+                <b>{weatherLables.preassure}</b>
+                {preassure}
+                {weatherLables.preassureUnit}
               </p>
               <p>
-                <b>Humidity: </b>
-                {humidity}%
+                <b>{weatherLables.humidity} </b>
+                {humidity}
+                {weatherLables.humidityUnit}
               </p>
               <p>
-                <b>Visibility: </b>
-                {visibility}km
+                <b>{weatherLables.visibility} </b>
+                {visibility}
+                {weatherLables.visibilityUnit}
               </p>
             </div>
           </Grid>
@@ -72,18 +76,20 @@ export default function WeatherItem({ data, index }) {
                 className="weather-item-bottom-panel-wind-img"
               />
               <p>
-                {windSpeed}m/s {windDeg} Degrees
+                {windSpeed}
+                {weatherLables.windSpeedUnit} {windDeg}{" "}
+                {weatherLables.windDegree}
               </p>
             </div>
           </Grid>
           <Grid item xs={4}>
             <div className="weather-item-bottom-panel-vertical-line-last">
               <p>
-                <b>Sunrise: </b>
+                <b>{weatherLables.sunrire} </b>
                 6:05 am
               </p>
               <p>
-                <b>Sunset: </b>
+                <b>{weatherLables.sunset} </b>
                 6:05 am
               </p>
             </div>

@@ -1,5 +1,11 @@
 import { cities } from "../data/cities";
 import { setCacheData } from "../cache/cache";
+import {
+  error,
+  watherService,
+  locationsURL,
+  weatherURL,
+} from "../constants/Constants";
 
 const locationsArray = [];
 const weatherArray = [];
@@ -7,10 +13,8 @@ const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 async function getGeoLocations(cityList) {
   for (let city of cityList) {
-    console.log("fetching locations");
-    const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${WEATHER_API_KEY}`
-    );
+    console.log(watherService.fetchLocations);
+    const response = await fetch(locationsURL(city, WEATHER_API_KEY));
     const geoLocation = await response.json();
     locationsArray.push(geoLocation);
   }
@@ -18,9 +22,9 @@ async function getGeoLocations(cityList) {
 
 async function getWeather(locationList) {
   for (let location of locationList) {
-    console.log("fetching weather");
+    console.log(watherService.fetchWeather);
     const response = await fetch(
-      `https://api.openweathermap.org/data/3.0/onecall?lat=${location[0].lat}&lon=${location[0].lon}&exclude=hourly,daily,minutely,alerts&units=metric&appid=${WEATHER_API_KEY}`
+      weatherURL(location[0].lat, location[0].lon, WEATHER_API_KEY)
     );
     const weather = await response.json();
     weather.fetchTime = new Date();
@@ -37,7 +41,7 @@ export async function getWeatherData(callback) {
     setCacheData(weatherArray, new Date().getTime());
     callback(weatherArray);
   } catch (err) {
-    callback("error");
-    console.log("An Error Occured", err);
+    callback(error);
+    console.log(watherService.err, err);
   }
 }

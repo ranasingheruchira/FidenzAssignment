@@ -3,13 +3,13 @@ import Footer from "./components/Footer";
 import DashBoard from "./pages/DashBoard";
 import ViewWeather from "./pages/ViewWeather";
 import { Routes, Route } from "react-router-dom";
-import { WEATHER_ARRAY } from "./constants/Constants";
 import { getWeatherData } from "./api/WeatherService";
 import { useEffect, useState } from "react";
 import { isCacheExpired, getCachedData, removeCachedData } from "./cache/cache";
+import { init, init_route, view_route } from "./constants/Constants";
 
 function App() {
-  const [weatherData, updateWeatherData] = useState(WEATHER_ARRAY);
+  const [weatherData, updateWeatherData] = useState(init);
 
   const cacheExpired = isCacheExpired();
 
@@ -27,7 +27,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/"
+          path={init_route}
           element={
             <DashBoard
               data={isCacheExpired() ? weatherData : getCachedData()}
@@ -35,7 +35,7 @@ function App() {
           }
         />
         <Route
-          path="/view/:id"
+          path={view_route}
           element={
             <ViewWeather
               data={isCacheExpired() ? weatherData : getCachedData()}

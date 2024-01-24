@@ -3,6 +3,7 @@ import { Container, Grid } from "@mui/material";
 import windIcon from "../assets/icons/Send.png";
 import { useParams } from "react-router-dom";
 import { icon } from "../util/util";
+import { weatherLables } from "../constants/Constants";
 
 export default function ViewWeather({ data }) {
   let { id } = useParams();
@@ -78,13 +79,15 @@ export default function ViewWeather({ data }) {
             >
               <div className="view-weather-bottom-phv">
                 <div>
-                  <b>Preassure:</b> {preassure}hPa
+                  <b>{weatherLables.preassure}</b>{" "}
+                  {preassure + weatherLables.preassureUnit}
                 </div>
                 <div>
-                  <b>Humidity:</b> {humidity}%
+                  <b>{weatherLables.humidity}</b>{" "}
+                  {humidity + weatherLables.humidityUnit}
                 </div>
                 <div>
-                  <b>Visibility:</b> {visibility}km
+                  <b>Visibility:</b> {visibility + weatherLables.visibilityUnit}
                 </div>
               </div>
               <div className="view-weather-bottom-divider">
@@ -99,7 +102,8 @@ export default function ViewWeather({ data }) {
                 >
                   <img src={windIcon} className="view-weather-bottom-image" />
                   <div>
-                    {windSpeed}m/s {windDeg} Degree
+                    {windSpeed + weatherLables.windSpeedUnit}{" "}
+                    {windDeg + " " + weatherLables.windDegree}
                   </div>
                 </Grid>
               </div>
@@ -108,10 +112,10 @@ export default function ViewWeather({ data }) {
               </div>
               <div className="view-weather-bottom-sunrise">
                 <div>
-                  <b>Sunrise:</b> 6:05 am
+                  <b>{weatherLables.sunrire}</b> 6:05 am
                 </div>
                 <div>
-                  <b>Sunset:</b> 6:05 pm
+                  <b>{weatherLables.sunset}</b> 6:05 pm
                 </div>
               </div>
             </Grid>

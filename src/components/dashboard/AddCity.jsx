@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
+import { add_btn_text } from "../../constants/Constants";
 
 export default function AddCity() {
   return (
@@ -13,7 +14,7 @@ export default function AddCity() {
           />
         </Grid>
         <Grid item>
-          <button className="add-city-btn">Add City</button>
+          <button className="add-city-btn">{add_btn_text}</button>
         </Grid>
       </Grid>
     </div>

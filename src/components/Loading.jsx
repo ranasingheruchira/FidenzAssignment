@@ -1,12 +1,12 @@
 import React from "react";
 import "../index.css";
-import { error_message } from "../constants/Constants";
+import { loading_message } from "../constants/Constants";
 
-export default function Error() {
+export default function Loading() {
   return (
     <div className="error-container">
       <div className="error-msg-container">
-        <h2>{error_message}</h2>
+        <h2>{loading_message}</h2>
       </div>
     </div>
   );
