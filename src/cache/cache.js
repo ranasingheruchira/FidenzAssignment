@@ -10,11 +10,6 @@ export function getCachedData() {
   return Array.from(JSON.parse(dataString));
 }
 
-export function removeCachedData() {
-  localStorage.removeItem(cacheKeys.weatherData);
-  localStorage.removeItem(cacheKeys.timeStamp);
-}
-
 export function isCacheExpired() {
   const fetchedTime = localStorage.getItem(cacheKeys.timeStamp);
   const currentTime = new Date().getTime();
