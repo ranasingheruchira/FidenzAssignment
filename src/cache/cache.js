@@ -7,7 +7,11 @@ export function setCacheData(data, timestamp) {
 
 export function getCachedData() {
   const dataString = localStorage.getItem(cacheKeys.weatherData);
-  return Array.from(JSON.parse(dataString));
+  if (!dataString) {
+    return null;
+  } else {
+    return Array.from(JSON.parse(dataString));
+  }
 }
 
 export function isCacheExpired() {
